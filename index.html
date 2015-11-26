@@ -2,9 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.css">
   <link rel="stylesheet" href="style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
@@ -12,9 +15,19 @@
   <title>RANDOCAH</title>
 </head>
 <body>
-  <h1 id="title">
+  <h1 id="title" class="animated pulse infinite">
     RANDOCAH
   </h1>
+
+  <div class="row">
+    <div class="col s2 offset-s5">
+      <div class="card-panel black" id="black-card">
+        <span class="white-text" id="black-card-text">Sup</span>
+      </div>
+    </div>
+  </div>
+  <div id="white-card-container">
+  </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js" async></script>
   <script src="randocah-cards.js"></script>

@@ -38,18 +38,25 @@ Game.prototype.playerPick = function () {
 Game.prototype.drawCards = function(){
 
   var currentBlackCard = this.blackDeck.drawTopCard()
+  $('#black-card-text').html(currentBlackCard.text)
 
-  console.log(currentBlackCard)
-  _.times(3, function(){
-    _.times(currentBlackCard.pick, function(){
-    console.log(this.whiteDeck.drawTopCard())
-  }.bind(this))
-}.bind(this))
+  for(var i=0; i< currentBlackCard.pick; i++){
+    var $row = $('<div>').addClass('row').attr('id', 'white-row-'+j).append($('<div>').addClass('col s2'))
+    for(var j=0; j < 3; j++){
+      var $card = $('<div>').addClass('card-panel white')
 
+
+      var $whiteSpan = $('<span>').addClass('white-card-text').html(this.whiteDeck.drawTopCard())
+      $card.append($whiteSpan)
+      var $whiteHolder = $('<div>').addClass('col s2 white-col').attr('id', 'white-col-'+i)
+
+      $('#white-card-container').append($row.append($whiteHolder.append($card)))
+      }
+    }
 }
 
 Game.prototype.incrementScore = function(player){
-  
+
 }
 
 var game = new Game(cardList.whiteCards, cardList.blackCards)
