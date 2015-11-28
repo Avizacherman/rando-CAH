@@ -1,3 +1,4 @@
+"use strict"
 
 var Deck = function(cardList){
     this.cardList = cardList
@@ -28,35 +29,49 @@ Game.prototype.initialize = function(){
   this.whiteDeck.shuffleDeck()
   this.blackDeck.shuffleDeck()
 
-  this.drawCards()
+  this.setUpCards()
 }
 
 Game.prototype.playerPick = function () {
 
 }
 
-Game.prototype.drawCards = function(){
+Game.prototype.setUpCards = function(){
 
   var currentBlackCard = this.blackDeck.drawTopCard()
   $('#black-card-text').html(currentBlackCard.text)
 
   for(var i=0; i< currentBlackCard.pick; i++){
-    var $row = $('<div>').addClass('row').attr('id', 'white-row-'+j).append($('<div>').addClass('col s2'))
-    for(var j=0; j < 3; j++){
+    var $row = $('<div>').addClass('row').attr('id', 'white-row-'+i)
+    for(var j=0; j < 4; j++){
       var $card = $('<div>').addClass('card-panel white')
-
 
       var $whiteSpan = $('<span>').addClass('white-card-text').html(this.whiteDeck.drawTopCard())
       $card.append($whiteSpan)
-      var $whiteHolder = $('<div>').addClass('col s2 white-col').attr('id', 'white-col-'+i)
+      var $whiteHolder = $('<div>').addClass('col s3 white-col').attr('id', 'white-col-'+j)
 
       $('#white-card-container').append($row.append($whiteHolder.append($card)))
       }
     }
+    var $buttonHolder = $('<div>').addClass('row').attr('id', 'select-button-holder')
+
+    for(let i=0; i<4; i++){
+      var $col = $('<div>').addClass('col s3')
+      var $selectButton = $('<a>')
+      .addClass('waves-effect waves-light black btn')
+      .text(`Select Player ${i+1}`)
+      .attr('id', `player-${i}`)
+      .click(()=>{this.incrementScore(i)})
+
+      $buttonHolder.append($col.append($selectButton))
+    }
+    $('#white-card-container').append($buttonHolder)
 }
 
 Game.prototype.incrementScore = function(player){
-
+  console.log(player)
+  $('#white-card-container').empty()
+  this.setUpCards()
 }
 
 var game = new Game(cardList.whiteCards, cardList.blackCards)
