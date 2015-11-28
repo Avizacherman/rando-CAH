@@ -19,6 +19,14 @@
     RANDOCAH
   </h2>
 
+  <div id="score-box">
+    <h5> Scores </h5>
+    <p> Player 1: <span id="player-1" class="player-scores"> 0 </span> </p>
+    <p> Player 2: <span id="player-2" class="player-scores"> 0 </span> </p>
+    <p> Player 3: <span id="player-3" class="player-scores"> 0 </span> </p>
+    <p> Player 4: <span id="player-4" class="player-scores"> 0 </span> </p>
+  </div>
+
   <div class="row">
     <div class="col s2 offset-s5">
       <div class="card-panel black" id="black-card">
@@ -26,11 +34,15 @@
       </div>
     </div>
   </div>
+  
   <div id="white-card-container" >
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js" async></script>
   <script src="randocah-cards.js"></script>
-  <script src="script.js"></script>
+  <script src="deck.js"></script>
+  <script src="player.js"></script>
+  <script src="game.js"></script>
+
 </body>
 </html>
